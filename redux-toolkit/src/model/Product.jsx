@@ -1,25 +1,28 @@
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart, fetchProduct} from "../Features/shopSlice";
-import style from "../css/style.css";
+import { addCart, fetchCart, fetchProduct } from "../Features/shopSlice";
+import "../css/style.css";
 
 function Product() {
-  const products = useSelector((state) => state.products);
-  const cart = useSelector((state)=> state.cart)
+  const product = useSelector((state) => state.products);
+  const cart = useSelector((state) => state.cart);
+
+  console.log(cart);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchProduct());
-  }, []);
+    dispatch(fetchCart());
+  }, [dispatch]);
 
-  const handleAdd = (id)=>{
-    dispatch(addCart({prodId:id}))
-  }
+  const handleAdd = (id) => {
+    dispatch(addCart({ prodId: id }));
+  };
 
 
   return (
     <div>
-      {products.map((item) => {
+      {product.map((item) => {
         return (
           // eslint-disable-next-line react/jsx-key
           <div className="products">
@@ -36,8 +39,12 @@ function Product() {
                 </div>
               </div>
               <div className="item2">
-                <div><span>{item.price}₽/гр.</span></div>
-               <button onClick={()=>handleAdd(item._id)} >Купить</button>
+                <div>
+                  <span>{item.price}₽/гр.</span>
+                </div>
+                <button style={{}} disabled={cart.some(car => car.productId === item._id)} onClick={() => handleAdd(item._id)}>
+                  Купить
+                </button>
               </div>
             </div>
           </div>

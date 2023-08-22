@@ -7,28 +7,20 @@ const initialState = {
 };
 
 export const fetchProduct = createAsyncThunk("product/fetch",
- async (data) => {
+ async (data, thunkAPI) => {
   const res = await fetch("http://localhost:5000/products");
   const product = await res.json();
-  try {
-    res.json(data);
-  } catch (error) {
-    res.json(error);
-  }
+ 
   return product
 });
 
 
 
 export const fetchCart = createAsyncThunk("cart/fetch",
- async (data) => {
+ async (data, thunkAPI) => {
   const res = await fetch("http://localhost:5000/cart");
   const cart = await res.json();
-  try {
-    res.json(data);
-  } catch (error) {
-    res.json(error);
-  }
+ 
   return cart
 });
 
@@ -50,7 +42,20 @@ async ({prodId}, thunkAPI)=>{
   }
 })
 
-
+export const deleteProduct = createAsyncThunk('card/delete',
+async(id, thunkAPI)=>{
+  try {
+    
+    const res = await fetch(`http://localhost:5000/cart/${id}`,{
+      method:'DELETE'
+    })
+    if(res.ok){
+    return id
+    }
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message)
+  }
+})
 
 
 
@@ -87,6 +92,9 @@ const productSlice = createSlice({
       })
       .addCase(addCart.fulfilled,(state,action)=>{
         state.cart.unshift(action.payload)
+      })
+      .addCase(deleteProduct.fulfilled,(state, action)=>{
+        state.cart = state.cart.filter((item)=> item._id !== action.payload)
       })
     }
 })

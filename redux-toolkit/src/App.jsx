@@ -1,15 +1,22 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Product from "./model/Product";
 import Podbor from "./model/Podbor";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Flacons from "./model/Flacons";
 import Cart from "./model/Cart";
+import { fetchCart } from "./Features/shopSlice";
 
 
 
 function App() {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
+
+
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
   
 
   const [on, setOn] = useState(false);

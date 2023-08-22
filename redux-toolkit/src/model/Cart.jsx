@@ -1,25 +1,30 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart } from "../Features/shopSlice";
+import { deleteProduct, fetchCart, fetchProduct } from "../Features/shopSlice";
 import { useEffect } from "react";
 
 function Cart() {
- 
+
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchCart());
-  }, []);
+    dispatch(fetchProduct());
+  }, [dispatch]);
 
-
+ const handleDelete = (id)=>{
+  dispatch(deleteProduct(id))
+ }
 
 const products = useSelector((state)=> state.products)
 const cart = useSelector((state)=> state.cart)
-const dispatch = useDispatch()
+
+
 
   return (
-    <div>
+    <div className="cartRod">
       {!cart.length ?(<div>Корзина пуста</div>):
       (products.map((prod)=>{
         return(
-          <div className="cartRod">
+          <div >
             {cart.map((item)=>{
               if(prod._id === item.productId){
                 return(
@@ -29,7 +34,8 @@ const dispatch = useDispatch()
                     </span>
                     </div>
                     <div>{prod.name}</div>
-                    <div>{prod.price}</div>
+                    <div>{prod.price} ₽</div>
+                    <button onClick={()=>handleDelete(item._id)}>Удалить</button>
                   </div>
                 )
               }
