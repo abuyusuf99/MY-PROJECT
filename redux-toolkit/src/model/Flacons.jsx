@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFlacons, fetchProduct } from "../Features/shopSlice";
+import { fetchFlacons } from "../Features/shopSlice";
 
 function Flacons() {
   const flacons = useSelector((state) => state.flacons);

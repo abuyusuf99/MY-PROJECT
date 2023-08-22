@@ -1,4 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Product from "./model/Product";
 import Podbor from "./model/Podbor";
 import { useState } from "react";
@@ -8,6 +9,9 @@ import Cart from "./model/Cart";
 
 
 function App() {
+  const cart = useSelector((state) => state.cart);
+  
+
   const [on, setOn] = useState(false);
   const [one, setOne] = useState(false);
 
@@ -27,8 +31,10 @@ function App() {
           <img src="logo.jpg" alt="" />
         </div>
         <div className="cartBlock">
-        <div className="cart">
-          <span>0</span><img  src="cart.svg" alt="" /></div>
+          <div className="carticon">
+            <span>{cart.length}</span>
+            <Link to="/Cart"><img src="cart.svg" alt="" /> </Link>
+          </div>
         </div>
         <div className="navig">
           <div className="menu">
@@ -46,17 +52,17 @@ function App() {
             >
               ПОДБОР АРОМАТА
             </Link>
-            <Link
-          
-             to="/Flacons">ФЛАКОНЫ</Link>
+            <Link to="/Flacons">ФЛАКОНЫ</Link>
           </div>
         </div>
       </div>
       <Routes>
-        <Route path="#" element={<Cart/>}/>
+        <Route path="#" element={<Cart />} />
         <Route path="Product" element={<Product />} />
         <Route path="Podbor" element={<Podbor />} />
-        <Route path="Flacons" element={<Flacons/>}/>
+        <Route path="Flacons" element={<Flacons />} />
+        <Route path="Cart" element={<Cart/>} />
+        
       </Routes>
     </div>
   );

@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProduct } from "../Features/shopSlice";
+import { addCart, fetchProduct} from "../Features/shopSlice";
 import style from "../css/style.css";
 
 function Product() {
   const products = useSelector((state) => state.products);
-  const[data, setData]= useState(0)
+  const cart = useSelector((state)=> state.cart)
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(fetchProduct());
   }, []);
 
-const handleRange =(id)=>{
-setData(data+1)
-}
+  const handleAdd = (id)=>{
+    dispatch(addCart({prodId:id}))
+  }
 
 
   return (
@@ -36,9 +37,7 @@ setData(data+1)
               </div>
               <div className="item2">
                 <div><span>{item.price}₽/гр.</span></div>
-                <input min="0" max="100" onChange={()=>handleRange(item._id)} type="range"  value={data}/>
-                <span>{data}</span>
-               <button>Купить</button>
+               <button onClick={()=>handleAdd(item._id)} >Купить</button>
               </div>
             </div>
           </div>

@@ -105,7 +105,7 @@ padding-top: 20px;
     font-family: "Roboto Slab",serif;
     font-weight: 400;
 }
-.cart img{
+.carticon img{
     width: 50px;
 justify-content: end;
 }
@@ -113,16 +113,16 @@ justify-content: end;
     display: flex;
     justify-content: end;
 }
-.cart span{
+.carticon span{
     color: white;
 }
 
-.cart span{
+.carticon span{
     position: relative;
     left: 53%;
     bottom: 40%;
 }
-.cart{
+.carticon{
     cursor: pointer;
     margin-right: 2%;
 }
@@ -151,4 +151,19 @@ margin: auto;
 }
 .ccc:hover{
     border: 3px solid #d3ae37;
+}
+.cartRod{
+    background-color: white;
+    position: relative;
+   top: 15px;
+    display: flex;
+}
+.cart{
+    justify-content: space-evenly;
+    width: 500px;
+    display: flex;
+  
+}
+.cartBack{
+    background: url(/fragrance-number-outline.svg) center center no-repeat;
 }
