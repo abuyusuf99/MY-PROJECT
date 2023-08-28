@@ -2,6 +2,7 @@
 *{
     box-sizing: border-box;
     margin: 0;padding: 0;
+    font-family: 'Roboto Slab', serif;
 }
 
 body{
@@ -12,8 +13,9 @@ body{
     background-color: black;
 }
 .image img{
-    width:  250px;
+    width:  200px;
     color: white;
+    cursor: pointer;
 }
 .image{
     display: flex;
@@ -26,6 +28,7 @@ body{
     justify-content: space-evenly;
     margin: auto;
     width: 500px;
+    margin-left: 22%;
     
     
 }
@@ -37,10 +40,10 @@ body{
     text-decoration: none;
     color: #d3ae37;
     font-size: 20px;
-    margin-bottom: 20px;
 }
 .navig{
     background-color: black;
+    display: flex;
 }
 .back{
     margin-left: 4%;
@@ -111,7 +114,13 @@ justify-content: end;
 }
 .cartBlock{
     display: flex;
-    justify-content: end;
+
+    
+
+}
+.cartBlock img{
+width: 45px;
+
 }
 .carticon span{
     color: white;
@@ -119,12 +128,18 @@ justify-content: end;
 
 .carticon span{
     position: relative;
-    left: 53%;
-    bottom: 40%;
+    left: 15%;
+    bottom: 110%;
+    border-radius: 50%;
+    background-color: #d3ae37;
+    border: 3px solid #d3ae37;
+   padding-left: 6px;
+   padding-right: 6px;
+    color: black;
 }
 .carticon{
     cursor: pointer;
-    margin-right: 2%;
+    margin-right: 2%
 }
 .flackImg img{
     width: 200px;
@@ -162,17 +177,223 @@ margin: auto;
     justify-content: space-around;
     width: 700px;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 5px;
+
 
   
 }
-.cartBack span{
+.a1{
     border: 3px solid #d3ae37;
-    border-radius: 100%;
+    width: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Roboto Slab",serif;
+    height: 60px;
     font-size: 40px;
 
 }
 .cartRod{
     display: flex; 
     justify-content: center;
+}
+.cart__name{
+   
+    width: 200px;
+    
+    font-family: "Roboto Slab",serif;
+    font-size: 25px;
+}
+.cart input{
+    background: #000;
+}
+.basket{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.registr img{
+width: 40px;
+}
+.registr{
+    width: 100px;
+    padding-left: 30px;
+}
+.registr a{
+    cursor: pointer;
+    /* box-sizing: border-box; */
+    padding-bottom: 30px;
+}
+
+.Author{
+    position: relative;
+   margin: auto;
+   width: 400px;
+   text-align: center;
+   bottom: 200px;
+   background-color: #d3ae37;
+   border: 1px solid #d3ae37;
+   height: 230px;
+   border-radius: 5px;
+   padding-top: 20px;
+}
+.Author input{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+.Author button{
+    margin-top: 20px;
+    width: 60px;
+    height: 35px;
+    border-radius: 5px;
+}
+.Registration{
+    position: absolute;
+   margin: auto;
+   width: 400px;
+   text-align: center;
+   bottom: 300px;
+   background-color: #d3ae37;
+   border: 1px solid #d3ae37;
+   height: 230px;
+   border-radius: 5px;
+  top: 5%;
+   left: 37%;
+}
+.Registration input{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+.Registration button{
+    margin-top: 20px;
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+}
+.Registration a{
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+.Author a{
+    text-decoration: none;
+    color: black;
+    border: 3px solid black;
+    border-radius: 5px;
+
+}
+.butAuthor{
+    margin-top: 10px;
+}
+
+
+form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: #d3ae37;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid black;
+    padding: 5px;
+}
+
+.inputDiv input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: #d3ae37;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: #07051a;
+    color: white;
+}
+.plusProd{
+    display: flex;
+    
+    position: relative;
+   align-items: center;
+}
+.plusProd a{
+    border: 1px solid ;
+    border-radius: 5px;
+    padding: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+
+}
+.addProductinput{
+}
+.input input{
+    width: 300px;
+    margin-top: 10px;
+    height: 35px;
+    font-size: 18px;
+}
+.rodBlockAdd{
+    margin-top: 20px;
+    width: 300px;
+margin: auto;
+
+}
+.addButtProd button{
+    width: 100px;
+    margin: 0;
+    height: 40px;
+    border-radius: 5px;
+    border:  none;
+    cursor: pointer;
+    background-color: #d3ae37;
+}
+.addButtProd{
+    padding-top: 20px;
+    width: 100px;
+    margin: auto;
 }

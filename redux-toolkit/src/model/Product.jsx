@@ -39,11 +39,13 @@ function Product() {
                 </div>
               </div>
               <div className="item2">
+               
                 <div>
+
                   <span>{item.price}₽/гр.</span>
                 </div>
-                <button style={{}} disabled={cart.some(car => car.productId === item._id)} onClick={() => handleAdd(item._id)}>
-                  Купить
+                <button style={{}} disabled={cart.find(car => car.productId === item._id)} onClick={() => handleAdd(item._id)}>
+                {cart.find(car => car.productId === item._id) ? 'уже в корзине' : 'купить'}
                 </button>
               </div>
             </div>

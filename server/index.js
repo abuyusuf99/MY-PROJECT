@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -8,6 +10,7 @@ app.use(cors())
 app.use(require('./routes/Product.route'))
 app.use(require('./routes/Flacons.route'))
 app.use(require("./routes/Cart.route"))
+app.use(require("./routes/User.route"))
 
 
 mongoose.connect("mongodb+srv://Muslim:***Muslim95@cluster0.b4yowf9.mongodb.net/Parfume")
