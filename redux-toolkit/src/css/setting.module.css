@@ -1,0 +1,31 @@
+.settinputs {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-radius: 5px;
+    height: 400px;
+    text-align: center;
+    background-color: #d3ae37;
+    margin: auto;
+  }
+  .settinputs button {
+    width: 120px;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    border-radius: 5px;
+  }
+  .settinputs input {
+    margin-top: 10px;
+    border-radius: 5px;
+    margin: auto;
+    outline: none;
+    height: 30px;
+    padding-left: 7px;
+    border: none;
+    width: 200px;
+  }
+  .sett {
+    margin-top: 10px;
+  }

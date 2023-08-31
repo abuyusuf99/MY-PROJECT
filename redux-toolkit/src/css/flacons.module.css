@@ -1,0 +1,28 @@
+.rodBlock {
+    display: flex;
+    width: 800px;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  .flackImg img {
+    width: 200px;
+    display: flex;
+  }
+  .flakons {
+    margin: 5px;
+    text-align: center;
+  }
+  .flackImg img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .ccc {
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+    background-color: white;
+    /* margin: 1px; */
+  }
+  .ccc:hover {
+    background-color: #c7a947;
+  }

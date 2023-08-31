@@ -1,0 +1,51 @@
+.inputs2 {
+    margin-top: 20px;
+  }
+  .notAcc {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .Author input::placeholder {
+    font-size: 20px;
+  }
+  .Author button {
+    margin-top: 20px;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  .Author a {
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+  }
+  .Author input {
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 23px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    padding-left: 5px;
+    background: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1614542054_46-p-fon-belii-tekstura-52.jpg");
+  }
+  .h2 {
+    margin-top: 20px;
+  }
+  .Author {
+    position: relative;
+    margin: auto;
+    width: 400px;
+    text-align: center;
+    bottom: 200px;
+    background-color: #d3ae37;
+    border: 1px solid #d3ae37;
+    height: 350px;
+    border-radius: 5px;
+    background: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1613116008_160-p-yarko-zheltii-fon-kartinki-178.jpg");
+  }

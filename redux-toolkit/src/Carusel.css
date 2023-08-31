@@ -1,0 +1,9 @@
+.carusel{
+    width: 600px;
+}
+.rodCarusel{
+display: flex;
+justify-content: center;
+box-sizing: border-box;
+padding: 20px;
+}

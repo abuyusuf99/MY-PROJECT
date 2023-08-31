@@ -1,0 +1,65 @@
+.product {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    align-items: center;
+    background-color: white;
+    margin: auto;
+    background: url("https://top-fon.com/uploads/posts/2023-01/1675189496_top-fon-com-p-belaya-kirpichnaya-stena-fon-dlya-prezenta-1.jpg");
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    padding: 10px;
+  }
+  .pro {
+    margin-top: 10px;
+  }
+  .desc span {
+    font-family: "Roboto Serif", serif;
+    font-size: 13px;
+    border-top: 1px solid gray;
+  }
+  .item2 {
+    margin-right: 4%;
+  }
+  .item2 button {
+    border: transparent;
+    width: 110%;
+    height: 40px;
+    margin-top: 3%;
+    background-color: #d3ae37;
+    color: white;
+    cursor: pointer;
+  }
+  .item {
+    width: 300px;
+  }
+  .name span {
+    font-size: 23px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .item2 span {
+    font-size: 23px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+  }
+  .back {
+    margin-left: 4%;
+    width: 110px;
+    height: 110px;
+    background: url(/fragrance-number-outline.svg) center center no-repeat;
+    background-size: 110px 110px;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+  }
+  .back span {
+    color: #000;
+    font-size: 34px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    position: relative;
+    top: 27px;
+  }

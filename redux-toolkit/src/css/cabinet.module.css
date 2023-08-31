@@ -1,0 +1,25 @@
+.cabinet {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    background-color: white;
+    width: 200px;
+    border-radius: 5px;
+    height: 200px;
+    padding-top: 5px;
+    padding-left: 20px;
+    margin-left: 20px;
+  }
+  .cabinet a {
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+  }
+  .cabinet button {
+    margin-top: 10px;
+    width: 50px;
+    cursor: pointer;
+    border: none;
+    width: 60px;
+    height: 30px;
+  }

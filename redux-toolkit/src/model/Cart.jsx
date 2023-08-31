@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, fetchCart, fetchProduct } from "../Features/shopSlice";
 import { useEffect, useState } from "react";
+import style from '../css/cart.module.css'
 
 function Cart() {
   const[data, setData]=useState(0)
@@ -19,27 +20,27 @@ const handleChange =()=>{
   dispatch(deleteProduct(id))
  }
 
-const products = useSelector((state)=> state.products)
-const cart = useSelector((state)=> state.cart)
+const products = useSelector((state)=> state.productSlice.products)
+const cart = useSelector((state)=> state.productSlice.cart)
 
 
 
   return (
-    <div className="basket">
+    <div className={style.basket}>
       {!cart.length ?(<div>Корзина пуста</div>):
       (products.map((prod)=>{
         return(
-          <div className="cartRod" >
-            {cart.map((item)=>{
+          <div className={style.cartRod} >
+            {cart.map((item, index)=>{
               if(prod._id === item.productId){
                 return(
-                  <div  className="cart">
-                    <div className="cartBack">
-                      <div className="a1">
-                    {prod.number}
+                  <div  className={style.cart}>
+                    <div className={style.cartBack}>
+                      <div className={style.a1}>
+                    {index+1}
                     </div>
                     </div>
-                    <div className="cart__name">{prod.name}</div>
+                    <div className={style.cart__name}>{prod.name}</div>
                     <input max="60" onChange={handleChange} type="range" />
                     <span>{data}</span>
                     <div>{prod.price} ₽</div>

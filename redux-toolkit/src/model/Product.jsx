@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart, fetchCart, fetchProduct } from "../Features/shopSlice";
+import { addCart, delProduct, fetchCart, fetchProduct } from "../Features/shopSlice";
 import "../css/style.css";
+import style from '../css/product.module.css'
 
-function Product() {
-  const product = useSelector((state) => state.products);
-  const cart = useSelector((state) => state.cart);
+function Product({text}) {
+  const product = useSelector((state) => state.productSlice.products);
+  const cart = useSelector((state) => state.productSlice.cart);
+  const user = useSelector((state) => state.user.user);
 
   console.log(cart);
   const dispatch = useDispatch();
@@ -18,27 +20,34 @@ function Product() {
   const handleAdd = (id) => {
     dispatch(addCart({ prodId: id }));
   };
-
+const handleDelete = (id)=>{
+  dispatch(delProduct(id))
+}
 
   return (
-    <div>
-      {product.map((item) => {
+    <div className={style.pro}>
+      {product.filter((prod) =>{
+        if(prod.name.toLowerCase().includes(text)){
+          return prod
+        }
+      }).map((item,index) => {
         return (
           // eslint-disable-next-line react/jsx-key
-          <div className="products">
-            <div className="product">
-              <div className="back">
-                <span>{item.number}</span>
+          <div className={style.products}>
+            <div className={style.product}>
+              <div className={style.back}>
+                <span>{index+1}</span>
               </div>
-              <div className="item">
-                <div className="name">
+              <div className={style.item}>
+                <div className={style.name}>
                   <span>{item.name}</span>
                 </div>
-                <div className="desc">
+                <div className={style.desc}>
                   <span>{item.description}</span>
+                  {user.isAdmin ?  <button onClick={() => handleDelete(item._id)}>Удалить</button> :null}
                 </div>
               </div>
-              <div className="item2">
+              <div className={style.item2}>
                
                 <div>
 

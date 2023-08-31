@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports.userControllers = {
   createUser: async (req, res) => {
-    const { login, password, cart } = req.body;
+    const { login, password,name,lastname,phone,mail, cart, } = req.body;
     const hash = await bcrypt.hash(password, Number(process.env.BCRYPT_ROUNDS));
 
     try {
@@ -15,6 +15,10 @@ module.exports.userControllers = {
       const data = await User.create({
         login: login,
         password: hash,
+        name:name,
+        lastname:lastname,
+        phone:phone,
+        mail:mail,
         cart: cart,
       });
       res.json(data);
@@ -22,10 +26,35 @@ module.exports.userControllers = {
       res.json(error);
     }
   },
+
+  //Изменение данных пользователя
   patchUser: async (req, res) => {
+    const{
+      login,
+      password,
+      name,
+      lastname,
+      phone,
+      mail,
+
+    } = req.body
+    const userId = req.user.id
     try {
-      const data = await User.findByIdAndUpdate(req.params.id, req.body);
-      res.json(data);
+      //Найти ппользователя по ID
+      const user = await User.findById(userId)
+      const hash = await bcrypt.hash(password, Number(process.env.BCRYPT_ROUNDS))
+
+
+      //Изменение данных
+      user.login = login || user.login
+      user.name = name || user.name
+      user.password = password !== "" ? hash: user.password
+      user.lastname = lastname || user.lastname
+      user.phone = phone || user.phone
+      user.mail = mail || user.mail
+      
+await user.save()
+res.json(user)
     } catch (error) {
       res.json(error);
     }
@@ -39,12 +68,13 @@ module.exports.userControllers = {
     }
   },
   getUser: async (req, res) => {
-    try {
-      const data = await User.findById();
+   
+      const data = await User.findById(req.user.id);
+      console.log(data);
       res.json(data);
-    } catch (error) {
-      res.json(error);
-    }
+    
+    
+   
   },
 
   login: async (req, res) => {
@@ -52,11 +82,11 @@ module.exports.userControllers = {
       const { login, password } = req.body;
       const candidate = await User.findOne({ login });
       if (!candidate) {
-        return res.status(401).json("Неверный логин");
+        return res.status(401).json({error:"Неверный логин или пароль!"});
       }
       const valid = await bcrypt.compare(password, candidate.password);
       if (!valid) {
-        return res.status(401).json("неверный пароль");
+        return res.status(401).json({error:"неверный пароль"});
       }
       const payload = {
         id: candidate._id,

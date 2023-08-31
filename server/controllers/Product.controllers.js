@@ -8,10 +8,10 @@ module.exports.productControllers = {
                 name: req.body.name,
                 price: req.body.price,
                 instock: req.body.instock,
-                number: req.body.number,
                 description: req.body.description
 
             })
+            
             res.json(data)
         } catch (error) {
             res.json(error)

@@ -1,0 +1,39 @@
+.cartRod {
+    background-color: white;
+    position: relative;
+    top: 15px;
+    display: flex;
+  }
+  .cart {
+    justify-content: space-around;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .a1 {
+    border: 3px solid #d3ae37;
+    width: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: "Roboto Slab", serif;
+    height: 60px;
+    font-size: 40px;
+  }
+  .cartRod {
+    display: flex;
+    justify-content: center;
+  }
+  .cart__name {
+    width: 200px;
+  
+    font-family: "Roboto Slab", serif;
+    font-size: 25px;
+  }
+  .cart input {
+    background: #000;
+  }
+  .basket {
+    text-align: center;
+    font-size: 30px;
+  }
