@@ -2,6 +2,7 @@
     margin-top: 20px;
   }
   .Registration {
+     z-index: 1;
     position: relative;
     margin: auto;
     width: 400px;
@@ -48,4 +49,11 @@
   }
   .butAuthor {
     margin-top: 10px;
+  }
+  .main1{
+      position: relative;
+      top: -500px;
+      z-index: 0;
+      
+     
   }

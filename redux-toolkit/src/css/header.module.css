@@ -1,0 +1,166 @@
+.header {
+    width: 100%;
+    background-color: black;
+    border-bottom: 1px solid #d3ae37;
+    font-weight: 600;
+  }
+  .image img {
+    width: 200px;
+    color: white;
+    cursor: pointer;
+  }
+  .image {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+  }
+  .menn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+    margin-right: 8%;
+    color: #d3ae37;
+  }
+  .menu a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  .menu a {
+    text-decoration: none;
+    color: #d3ae37;
+    font-size: 20px;
+  }
+  .navig {
+    background-color: black;
+    display: flex;
+  }
+  
+  
+  
+  .carticon img {
+    width: 50px;
+    justify-content: end;
+  }
+  .cartBlock {
+    display: flex;
+  }
+  .cartBlock img {
+    width: 45px;
+  }
+  .carticon span {
+    color: white;
+  }
+  
+  .carticon span {
+    position: relative;
+    left: 15%;
+    bottom: 110%;
+    border-radius: 50%;
+    background-color: #d3ae37;
+    border: 3px solid #d3ae37;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: black;
+  }
+  .carticon {
+    cursor: pointer;
+    margin-right: 2%;
+  }
+  
+  
+  
+  .registr img {
+    width: 40px;
+  }
+  .registr {
+    width: 100px;
+    padding-left: 30px;
+  }
+  .registr a {
+    cursor: pointer;
+    /* box-sizing: border-box; */
+    padding-bottom: 30px;
+  }
+  
+  
+  
+  form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: #d3ae37;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid black;
+    padding: 5px;
+  }
+  
+  .inputDiv input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: #d3ae37;
+  }
+  .inputDiv{
+    margin-right: 10px;
+  }
+  
+  .fa {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+  }
+  
+  form:hover {
+    width: 200px;
+    cursor: pointer;
+  }
+  
+  form:hover input {
+    display: block;
+  }
+  
+  form:hover .fa {
+    background: #07051a;
+    color: white;
+  }
+  .plusProd {
+    display: flex;
+  
+    position: relative;
+    align-items: center;
+  }
+  .plusProd a {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+  } 

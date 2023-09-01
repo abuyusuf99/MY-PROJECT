@@ -22,6 +22,7 @@
     color: white;
     border-radius: 5px;
     padding: 1px;
+    font-weight: 500;
   }
   .Author input {
     width: 250px;
@@ -38,6 +39,7 @@
     margin-top: 20px;
   }
   .Author {
+    z-index: 1;
     position: relative;
     margin: auto;
     width: 400px;
@@ -49,3 +51,12 @@
     border-radius: 5px;
     background: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1613116008_160-p-yarko-zheltii-fon-kartinki-178.jpg");
   }
+  .invaliderr {
+    color: red;
+  }
+  .main {
+    position: relative;
+    top: -350px;
+    z-index: 0;
+  }
+  

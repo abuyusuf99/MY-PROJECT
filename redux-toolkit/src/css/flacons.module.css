@@ -3,12 +3,12 @@
     width: 800px;
     flex-wrap: wrap;
     margin: auto;
-  }
-  .flackImg img {
+}
+.flackImg img {
     width: 200px;
     display: flex;
-  }
-  .flakons {
+}
+.flakons {
     margin: 5px;
     text-align: center;
   }
@@ -26,3 +26,4 @@
   .ccc:hover {
     background-color: #c7a947;
   }
+  

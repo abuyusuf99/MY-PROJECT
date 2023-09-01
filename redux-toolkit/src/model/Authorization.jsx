@@ -3,6 +3,7 @@ import { userLogin } from "../Features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import style from '../css/authorization.module.css'
+import Main from "./Main";
 function Authorization() {
   const error = useSelector((state)=> state.user.error)
   const token = useSelector((state)=>state.user.token)
@@ -39,6 +40,10 @@ function Authorization() {
         <span><Link to="Registr">Зарегистрироваться</Link></span>
         </div>
         </div>
+    </div>
+    <div className={style.main}>
+
+    <Main/>
     </div>
     
     </div>

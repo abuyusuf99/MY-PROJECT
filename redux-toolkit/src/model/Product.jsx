@@ -66,3 +66,12 @@ const handleDelete = (id)=>{
 }
 
 export default Product;
+
+
+
+
+
+
+
+
+
