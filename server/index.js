@@ -11,6 +11,7 @@ app.use(require('./routes/Product.route'))
 app.use(require('./routes/Flacons.route'))
 app.use(require("./routes/Cart.route"))
 app.use(require("./routes/User.route"))
+app.use(require("./routes/Reviews.route"))
 
 
 mongoose.connect("mongodb+srv://Muslim:***Muslim95@cluster0.b4yowf9.mongodb.net/Parfume")

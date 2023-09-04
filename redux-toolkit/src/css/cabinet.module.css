@@ -9,6 +9,7 @@
     padding-top: 5px;
     padding-left: 20px;
     margin-left: 20px;
+    margin-bottom: 10%;
   }
   .cabinet a {
     text-decoration: none;
@@ -17,9 +18,10 @@
   }
   .cabinet button {
     margin-top: 10px;
-    width: 50px;
     cursor: pointer;
     border: none;
     width: 60px;
     height: 30px;
+    background-color: #d3ae37;
+   border-radius: 5px;
   }

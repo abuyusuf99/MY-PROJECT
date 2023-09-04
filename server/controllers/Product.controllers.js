@@ -8,7 +8,8 @@ module.exports.productControllers = {
                 name: req.body.name,
                 price: req.body.price,
                 instock: req.body.instock,
-                description: req.body.description
+                description: req.body.description,
+                reviews: req.body.reviews
 
             })
             
@@ -40,5 +41,13 @@ try {
 } catch (error) {
     res.json(error)
 }
-    }
+    },
+    getOneProduct: async(req,res)=>{
+        try {
+            const data = await Product.findById(req.params.id)
+            res.json(data)
+        } catch (error) {
+            res.json(error)
+        }
+            }
 }

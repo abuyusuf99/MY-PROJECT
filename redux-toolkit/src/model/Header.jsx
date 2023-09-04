@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { fetchCart } from "../Features/shopSlice";
+import { fetchCart, fetchOneProduct, fetchProduct } from "../Features/shopSlice";
 import Cabinet from "./Cabinet";
 import Flacons from "./Flacons";
 import Cart from "./Cart";
@@ -14,7 +14,11 @@ import style from '../css/header.module.css'
 import Podbor from "./Podbor";
 import img1 from '../img/registr.svg'
 import img from '../img/search.svg'
+import img3 from '../img/logo.jpg'
+import img_cart from '../img/cart.svg'
 import Main from "./Main";
+import OneProduct from "./OneProduct";
+import { getUser } from "../Features/userSlice";
 
 function Header() {
     const cart = useSelector((state) => state.productSlice.cart);
@@ -26,6 +30,9 @@ function Header() {
   
     useEffect(() => {
       dispatch(fetchCart());
+      dispatch(getUser())
+      dispatch(fetchProduct())
+      dispatch(fetchOneProduct())
     }, []);
   
     const [on, setOn] = useState(false);
@@ -58,7 +65,7 @@ function Header() {
             <div className={style.image}>
               <Link to="/">
                 {" "}
-                <img src="logo.jpg" alt="" />
+                <img src={img3} alt="" />
               </Link>
             </div>
     
@@ -77,7 +84,7 @@ function Header() {
               <div className={style.cartBlock}>
                 <div className={style.carticon}>
                   <Link to="/Cart">
-                    <img src="cart.svg" alt="" />{" "}
+                    <img src={img_cart} alt="" />{" "}
                   </Link>
                   <span>{cart.length}</span>
                 </div>
@@ -137,6 +144,7 @@ function Header() {
             <Route path="Register/Authorization" element={<Authorization />} />
             <Route path="PlusProduct" element={<AddProduct />} />
             <Route path="Setting" element={<Setting />} />
+            <Route path="Product/OneProduct/:id" element={<OneProduct />} />
           </Routes>
          
         </div>

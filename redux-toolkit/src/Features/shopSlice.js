@@ -2,15 +2,29 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  product:[],
   flacons: [],
   cart: [],
 };
 
-export const fetchProduct = createAsyncThunk("product/fetch", async () => {
+export const fetchProduct = createAsyncThunk("product/fetch", 
+async () =>{
   const res = await fetch("http://localhost:5000/products");
   const product = await res.json();
 
   return product;
+});
+export const fetchOneProduct = createAsyncThunk("productOne/fetch", 
+async (id,thunkAPI) => {
+  try {
+    const res = await fetch(`http://localhost:5000/products/${id}`);
+  const product = await res.json();
+
+  return product;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message)
+  }
+  
 });
 
 export const fetchCart = createAsyncThunk("cart/fetch", async () => {
@@ -134,7 +148,11 @@ const productSlice = createSlice({
         state.products = state.products.filter(
           (item) => item._id !== action.payload
         );
-      });
+      })
+      .addCase(fetchOneProduct.fulfilled,(state,action)=>{
+        state.product = action.payload
+      })
+    
   },
 });
 

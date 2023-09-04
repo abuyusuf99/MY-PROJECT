@@ -5,7 +5,11 @@ const productSchema = mongoose.Schema({
     name: String,
     price: Number,
     instock: Boolean,
-    description: String
+    description: String,
+    reviews: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Reviews"
+    }
 
 })
 const Product = mongoose.model('Product', productSchema)

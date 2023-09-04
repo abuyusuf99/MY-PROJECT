@@ -5,6 +5,7 @@ import style from '../css/flacons.module.css'
 
 function Flacons() {
   const flacons = useSelector((state) => state.productSlice.flacons);
+  console.log(flacons);
   const dispatch = useDispatch();
 
   useEffect(() => {

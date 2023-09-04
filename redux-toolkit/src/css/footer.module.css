@@ -1,0 +1,39 @@
+.footer{
+    display: flex;
+    padding-top: 40px;
+    justify-content: center;
+    background-color: black;
+   
+}
+.footer_span{
+    width: 500px;
+    display: flex;
+    color: #d3ae37;
+    justify-content: space-around;
+    font-size: 20px;
+    background-color: black;
+}
+.footer_img img{
+    width: 40px;
+}
+.footer_img{
+    width: 300px;
+    padding-top: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.rod_footer_block{
+    background-color: black;
+    flex: 1 1 auto;
+    
+}
+.footer_span1 span{
+    color: white;
+}
+.footer_span1{
+    padding-top: 30px;
+    width: 600px;
+    margin: auto;
+    display: flex;
+}

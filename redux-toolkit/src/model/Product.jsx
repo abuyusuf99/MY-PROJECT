@@ -1,16 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart, delProduct, fetchCart, fetchProduct } from "../Features/shopSlice";
+import { addCart, delProduct, fetchCart, fetchOneProduct, fetchProduct } from "../Features/shopSlice";
 import "../css/style.css";
 import style from '../css/product.module.css'
+import { Link } from "react-router-dom";
 
 function Product({text}) {
   const product = useSelector((state) => state.productSlice.products);
   const cart = useSelector((state) => state.productSlice.cart);
   const user = useSelector((state) => state.user.user);
+  console.log(user);
 
-  console.log(cart);
   const dispatch = useDispatch();
+
+
+  
 
   useEffect(() => {
     dispatch(fetchProduct());
@@ -39,10 +43,10 @@ const handleDelete = (id)=>{
                 <span>{index+1}</span>
               </div>
               <div className={style.item}>
-                <div className={style.name}>
-                  <span>{item.name}</span>
+                <div  className={style.name}>
+                 <Link to={`OneProduct/${item._id}`}><span >{item.name}</span></Link> 
                 </div>
-                <div className={style.desc}>
+                <div  className={style.desc}>
                   <span>{item.description}</span>
                   {user.isAdmin ?  <button onClick={() => handleDelete(item._id)}>Удалить</button> :null}
                 </div>
