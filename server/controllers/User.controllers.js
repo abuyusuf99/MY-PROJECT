@@ -70,12 +70,20 @@ res.json(user)
   getUser: async (req, res) => {
    
       const data = await User.findById(req.user.id);
-      console.log(data);
       res.json(data);
     
     
    
-  },
+  },getProductCart: async(req,res)=>{
+    try {
+        const data = await User.find({}).populate('Product')
+    
+        res.json(data)
+    } catch (error) {
+        res.json(error)
+    }
+        },
+
 
   login: async (req, res) => {
     try {

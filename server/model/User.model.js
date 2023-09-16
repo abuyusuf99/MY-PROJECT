@@ -7,10 +7,10 @@ const userSchema = mongoose.Schema({
   lastname: String,
   phone: Number,
   mail: String,
-  cart: {
+  cart: [{
     type: mongoose.SchemaTypes.ObjectId,
     ref: "Product",
-  },
+  }],
   isAdmin: {
     type: Boolean,
     default: false,

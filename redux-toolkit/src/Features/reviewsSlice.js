@@ -26,11 +26,28 @@ async({text,user,productId}, thunkAPI)=>{
                 Authorization: `Bearer ${thunkAPI.getState().user.token}`
             },
             body:JSON.stringify({
-                text:text, user:user, productId:productId
+                text:text, user:user, productId: productId
             }),
         });
         const rev = await res.json()
         return rev
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message)
+    }
+})
+export const deleteReview = createAsyncThunk("delete/review",
+async (id,thunkAPI)=>{
+    try {
+        const res = await fetch(`http://localhost:5000/Reviews/${id}`,{
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${thunkAPI.getState().user.token}`
+            },
+        })
+        if(res.ok){
+            return id
+        }
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
     }
@@ -52,6 +69,9 @@ const reviewsSlice = createSlice({
         })
         .addCase(addReview.fulfilled,(state,action)=>{
             state.reviews.unshift(action.payload)
+        })
+        .addCase(deleteReview.fulfilled,(state,action)=>{
+            state.reviews = state.reviews.filter((item)=> item._id !==action.payload)
         })
     }
 })

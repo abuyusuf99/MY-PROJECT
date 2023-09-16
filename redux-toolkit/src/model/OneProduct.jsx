@@ -6,7 +6,7 @@ import style from "../css/oneproduct.module.css";
 import img from "../img/parfume.svg";
 import send from "../img/send.svg";
 import userimg from "../img/user.svg";
-import { addReview, fetchReviews } from "../Features/reviewsSlice";
+import { addReview, deleteReview, fetchReviews } from "../Features/reviewsSlice";
 import { getUser } from "../Features/userSlice";
 
 function OneProduct() {
@@ -17,7 +17,7 @@ function OneProduct() {
   const review = useSelector((state) => state.reviewSlice.reviews);
   const user = useSelector((state) => state.user.user);
   const cart = useSelector((state) => state.productSlice.cart);
-  console.log(user);
+  console.log(product);
   const handleAdd = (id) => {
     dispatch(addCart({ prodId: id }));
   };
@@ -29,13 +29,16 @@ function OneProduct() {
 
   const { id } = useParams(); //Для вывода одного продукта
 
-  const handleAddRev = (text, user, product) => {
-    dispatch(addReview({ text: text, user: user._id, productId: product }));
+  const handleAddRev = () => {
+    dispatch(addReview({ text: text, user: user._id, productId: product._id }));
   };
 
   const handleOpenRev = () => {
     setOpen(!open);
   };
+  const handleDelete = (id)=>{
+    dispatch(deleteReview(id))
+  }
 
   useEffect(() => {
     dispatch(fetchOneProduct(id));
@@ -84,8 +87,10 @@ function OneProduct() {
                       <div className={style.image_name}>
                         <img src={userimg} alt="" />
                       <span>
-                       {item.user.lastname[0]}.  {item.user.name} :{item.text}
+                       {item.user.lastname}.  {item.user.name} :{item.text}
                       </span>
+                      {item.user._id === user._id ? <button onClick={()=>handleDelete(item._id)}>X</button> : null}
+                      
                       </div>
                     ) : null}
                   </div>
@@ -99,9 +104,7 @@ function OneProduct() {
               type="text"
               onChange={(e) => setText(e.target.value)}
             />
-          <img  onClick={() => {
-              handleAddRev(text, user, id);
-            }} src={send} alt="" />
+          <img  onClick={handleAddRev} src={send} alt="" />
           </div>
           </div>
 
